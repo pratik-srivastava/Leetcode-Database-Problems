@@ -1,0 +1,7 @@
+select a.name as name, 
+IF(SUM(b.distance) is null,0 , SUM(b.distance)) as travelled_distance 
+from users  a
+left join rides b
+on a.id = b.user_id 
+group by b.user_id 
+order by travelled_distance DESC ,name ASC;
