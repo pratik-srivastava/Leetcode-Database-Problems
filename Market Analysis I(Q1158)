@@ -1,0 +1,5 @@
+SELECT U.user_id AS buyer_id, U.join_date, COUNT(O.item_id) as orders_in_2019
+FROM Users U 
+LEFT JOIN Orders O 
+ON U.user_id = O.buyer_id AND LEFT(O.order_date,4) = 2019 
+GROUP BY 1
